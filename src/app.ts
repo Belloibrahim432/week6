@@ -8,7 +8,7 @@ import db from "./config/db.config";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import booksRouter from "./routes/books";
-import { conf } from "detenv";
+import {config} from "detenv";
 
 // synchronizeDatabase
 db.sync().then(() => {

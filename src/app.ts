@@ -3,12 +3,21 @@ import express, { Request, Response, NextFunction } from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
+import db from "./config/db.config";
 
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
+import booksRouter from "./routes/books";
+import { conf } from "detenv";
 
+// synchronizeDatabase
+db.sync().then(() => {
+  console.log("Database synchronized");
+}).catch((err) => {
+  console.log("Error while synchronizing database", error);
+});
 
-import db from "./config/db.config";
+config()
 
 const app = express();
 

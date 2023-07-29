@@ -7,6 +7,10 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    res.send('respond with a resource from users');
+    res.send('respond with a resource from books');
 });
+/* POST users listing. */
+// router.post('/', function(req, res, next) {
+//   res.send('respond with a resource from books');
+// });
 exports.default = router;

@@ -8,16 +8,19 @@ import db from "./config/db.config";
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 import booksRouter from "./routes/books";
-import {config} from "detenv";
+// import {config} from "detenv";
 
 // synchronizeDatabase
-db.sync().then(() => {
-  console.log("Database synchronized");
-}).catch((err) => {
-  console.log("Error while synchronizing database", error);
-});
+db
+  .sync()
+  .then(() => {
+    console.log("Database synchronized");
+  })
+  .catch((err) => {
+    console.log("Error while synchronizing database", err);
+  });
 
-config()
+// config()
 
 const app = express();
 
@@ -33,6 +36,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/books", booksRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

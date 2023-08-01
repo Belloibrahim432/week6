@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
+    // render view from views/index.jade
+    res.render('index', { title: 'Express - Book Library Project' });
 });
 exports.default = router;

@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  // render view from views/index.jade
+  res.render('index', { title: 'Express - Book Library Project' });
 });
 
 export default router;

@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 import {getAllBooks, addBook, getBook, deleteBook, updateBook} from "../controllers/book"
 
 const router = express.Router();

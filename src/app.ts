@@ -9,14 +9,14 @@ import usersRouter from './routes/users';
 import booksRouter from './routes/books';
 import {config} from 'dotenv';
 
-// synchronize database
-db.sync().then(() => {
-    console.log("database synced successfully!");
-  }).catch(error => {
-    console.log("error syncing db", error);
+// synchronizeDatabase
+db
+  .sync()
+  .then(() => {
+    console.log("Database synchronized");
   })
 
-config();
+config()
 
 const app = express();
 
@@ -40,7 +40,12 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use((err: createError.HttpError, req: Request, res: Response, next: NextFunction) => {
+app.use(function (
+  err: createError.HttpError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+)  {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

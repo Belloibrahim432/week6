@@ -18,11 +18,7 @@
     "nodemon": "^3.0.1",
     "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6",
-<<<<<<< HEAD
-    "uuidv4": "^6.2.13"
-=======
     "uuid": "^9.0.0"
->>>>>>> 20051b0 (initial commit)
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",

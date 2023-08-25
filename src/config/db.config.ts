@@ -4,6 +4,7 @@ import {Sequelize} from "sequelize";
 const db = new Sequelize("database", "name", "password", {
   dialect: "sqlite",
   storage: "./database.sqlite",
+  logging: false,
 });
 
 // export the db and import into app.ts

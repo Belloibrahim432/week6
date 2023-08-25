@@ -13,17 +13,15 @@ const index_1 = __importDefault(require("./routes/index"));
 const users_1 = __importDefault(require("./routes/users"));
 const books_1 = __importDefault(require("./routes/books"));
 const dotenv_1 = require("dotenv");
-
+const mongoose_1 = __importDefault(require("mongoose"));
 // synchronizeDatabase
 db_config_1.default
     .sync()
     .then(() => {
     console.log("Database synchronized");
-
 });
 (0, dotenv_1.config)();
 const app = (0, express_1.default)();
-
 // view engine setup
 app.set('views', path_1.default.join(__dirname, '..', 'views'));
 app.set('view engine', 'jade');
@@ -47,5 +45,12 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+mongoose_1.default.set('strictQuery', false);
+mongoose_1.default.connect('mongodb+srv://jiobee97:t8P6i6Nsr3CUcuHN@cluster0.jkzuwz9.mongodb.net/')
+    .then(() => {
+    console.log('connected to mongodb');
+}).catch((error) => {
+    console.log('error');
 });
 exports.default = app;

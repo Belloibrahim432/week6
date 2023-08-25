@@ -8,6 +8,7 @@ import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import booksRouter from './routes/books';
 import {config} from 'dotenv';
+import mongoose from 'mongoose';
 
 // synchronizeDatabase
 db
@@ -54,5 +55,15 @@ app.use(function (
   res.status(err.status || 500);
   res.render('error');
 });
+
+mongoose.set('strictQuery', false)
+mongoose.connect('mongodb+srv://jiobee97:t8P6i6Nsr3CUcuHN@cluster0.jkzuwz9.mongodb.net/')
+.then(()=>{
+  console.log('connected to mongodb');
+}).catch((error)=>{
+  console.log('error');
+})
+
+
 
 export default app;

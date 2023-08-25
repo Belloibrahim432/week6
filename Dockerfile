@@ -3,7 +3,7 @@ FROM node:gallium-alpine
 
 ENV NODE_ENV=production
 
-ENV PORT=8080
+ENV PORT=3000
 
 WORKDIR /usr/app
 
@@ -11,6 +11,8 @@ COPY ./ ./
 
 RUN yarn
 
-EXPOSE 8080
+EXPOSE 3000
 
 CMD ["yarn", "start"]
+
+
